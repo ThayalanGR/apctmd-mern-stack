@@ -2,6 +2,9 @@
 import express from 'express';
 import middlewares from './config/middlewares';
 import dbconfig from './config/dbconfig';
+import {
+    authRoute
+} from './modules';
 
 //constants
 const PORT = process.env.PORT || 4000;
@@ -14,7 +17,7 @@ middlewares(app);
 dbconfig();
 
 //routes
-// app.use('/api', []);
+app.use('/api', authRoute);
 
 //listen on port
 app.listen(PORT, (err) => {
