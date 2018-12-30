@@ -7,7 +7,11 @@ import {
 } from 'redux-form';
 
 import authReducer from './auth';
+import dashboardReducer from './dashboard';
+
+
 export default combineReducers({
     form: formReducer,
-    auth: authReducer
+    auth: authReducer,
+    dash: dashboardReducer
 });

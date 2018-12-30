@@ -1,10 +1,26 @@
 import React, { Component } from "react";
+import { connect } from "react-redux";
+
+import * as actions from "../actions";
 
 class Dashboard extends Component {
   state = {};
+
+  async componentDidMount() {
+    await this.props.getSecret();
+  }
   render() {
-    return <p>i am dashboard</p>;
+    return <p>{this.props.secret}</p>;
   }
 }
 
-export default Dashboard;
+function mapStateToProps(state) {
+  return {
+    secret: state.dash.secret
+  };
+}
+
+export default connect(
+  mapStateToProps,
+  actions
+)(Dashboard);

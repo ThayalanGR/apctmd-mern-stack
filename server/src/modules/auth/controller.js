@@ -109,3 +109,10 @@ export const signincontroller = (req, res) => {
     });
 
 };
+
+
+export const current = (req, res) => {
+    res.send({
+        success: 'secret'
+    });
+};
