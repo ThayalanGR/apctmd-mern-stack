@@ -4,8 +4,11 @@ class Header extends Component {
   state = {};
   render() {
     return (
-      <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-        <Link className="navbar-brand text-light" to="/">
+      <nav
+        className="navbar navbar-expand-lg navbar-dark bg-dark "
+        style={{ marginBottom: "30px" }}
+      >
+        <Link className="navbar-brand text-light font-weight-bold ml-2" to="/">
           Air Pollution Control and Monitoring Drone
         </Link>
 
