@@ -3,7 +3,8 @@ import express from 'express';
 import middlewares from './config/middlewares';
 import dbconfig from './config/dbconfig';
 import {
-    authRoute
+    authRoute,
+    sensorRoute
 } from './modules';
 
 //constants
@@ -17,7 +18,7 @@ middlewares(app);
 dbconfig();
 
 //routes
-app.use('/api', authRoute);
+app.use('/api', [authRoute, sensorRoute]);
 
 //listen on port
 app.listen(PORT, (err) => {

@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import userModel from './model';
 import passport from 'passport';
 import passportInit from './passport';

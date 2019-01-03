@@ -30,8 +30,7 @@ export default (state = DEFAULT_STATE, action) => {
                 errorMessage: action.payload
             }
         case AUTH_SIGN_OUT:
-            return {
-                ...state,
+            return { ...state,
                 isAuthenticated: false,
                 errorMessage: ''
             }

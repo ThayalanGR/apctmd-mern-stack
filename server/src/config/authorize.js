@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 import jwt from 'express-jwt';
 
 const getTokenFromHeaders = (req) => {
@@ -6,7 +5,6 @@ const getTokenFromHeaders = (req) => {
         authorization
     } = req.headers;
     if (authorization && authorization.split(' ')[0] === 'Token') {
-        console.log(authorization.split(' ')[1]);
         return authorization.split(' ')[1];
     }
     return null;

@@ -8,10 +8,12 @@ import {
 
 import authReducer from './auth';
 import dashboardReducer from './dashboard';
+import sensorReducer from './sensor';
 
 
 export default combineReducers({
     form: formReducer,
     auth: authReducer,
-    dash: dashboardReducer
+    dash: dashboardReducer,
+    gas: sensorReducer
 });

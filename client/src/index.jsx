@@ -4,7 +4,10 @@ import { BrowserRouter, Route } from "react-router-dom";
 import { createStore, applyMiddleware } from "redux";
 import { Provider } from "react-redux";
 import reduxThunk from "redux-thunk";
-// import axios from "axios";
+import axios from "axios";
+
+// eslint-disable-next-line no-unused-vars
+import styles from "./styles/index.css";
 
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
@@ -15,8 +18,11 @@ import Dashboard from "./components/dashboard";
 import reducers from "./reducers";
 
 import authGaurd from "./components/HOCS/authGuard";
+import homeGaurd from "./components/HOCS/homeGaurd";
 
 const jwtToken = localStorage.getItem("JWT_TOKEN");
+if (jwtToken)
+  axios.defaults.headers.common["Authorization"] = `Token ${jwtToken}`;
 
 ReactDOM.render(
   <Provider
@@ -33,9 +39,9 @@ ReactDOM.render(
   >
     <BrowserRouter>
       <App>
-        <Route exact path="/" component={Home} />
-        <Route exact path="/signup" component={SignUp} />
-        <Route exact path="/signin" component={SignIn} />
+        <Route exact path="/" component={homeGaurd(Home)} />
+        <Route exact path="/signup" component={homeGaurd(SignUp)} />
+        <Route exact path="/signin" component={homeGaurd(SignIn)} />
         <Route exact path="/dashboard" component={authGaurd(Dashboard)} />
       </App>
     </BrowserRouter>
