@@ -5,16 +5,16 @@ class Player extends Component {
   state = {};
 
   componentDidMount() {
-    if (Hls.isSupported() && this.player) {
-      const video = this.player;
-      const stream = "https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8";
-      const hls = new Hls();
-      hls.loadSource(stream);
-      hls.attachMedia(video);
-      hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        video.play();
-      });
-    }
+    // if (Hls.isSupported() && this.player) {
+    //   const video = this.player;
+    //   const stream = "https://video-dev.github.io/streams/x36xhzz/x36xhzz.m3u8";
+    //   const hls = new Hls();
+    //   hls.loadSource(stream);
+    //   hls.attachMedia(video);
+    //   hls.on(Hls.Events.MANIFEST_PARSED, function() {
+    //     video.play();
+    //   });
+    // }
   }
 
   render() {
@@ -25,17 +25,17 @@ class Player extends Component {
             APCTMD - Live Stream
           </h5>
         </div>
-        {/* <iframe
+        <iframe
           title={"stream"}
           className="embed-responsive-item rounded videoCanvas shadow-lg"
           src={"http://freakiest-budgerigar-9742.dataplicity.io/?action=stream"}
           style={{ border: "none" }}
-        /> */}
-        <video
+        />
+        {/* <video
           className="videoCanvas shadow-lg rounded"
           ref={player => (this.player = player)}
           autoPlay={true}
-        />
+        /> */}
       </div>
     );
   }
