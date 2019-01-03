@@ -25,7 +25,12 @@ class Player extends Component {
             APCTMD - Live Stream
           </h5>
         </div>
-
+        {/* <iframe
+          title={"stream"}
+          className="embed-responsive-item rounded videoCanvas shadow-lg"
+          src={"http://freakiest-budgerigar-9742.dataplicity.io/?action=stream"}
+          style={{ border: "none" }}
+        /> */}
         <video
           className="videoCanvas shadow-lg rounded"
           ref={player => (this.player = player)}

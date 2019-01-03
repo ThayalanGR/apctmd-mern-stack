@@ -49,12 +49,18 @@ class Header extends Component {
             {!this.props.isAuthenticated ? (
               [
                 <li className="nav-item" key="signin">
-                  <Link className="nav-link text-light" to="/signin">
+                  <Link
+                    className="nav-link text-light font-weight-bold"
+                    to="/signin"
+                  >
                     sign In
                   </Link>
                 </li>,
                 <li className="nav-item" key="signup">
-                  <Link className="nav-link text-light" to="/signup">
+                  <Link
+                    className="nav-link text-light font-weight-bold"
+                    to="/signup"
+                  >
                     Sign Up
                   </Link>
                 </li>
@@ -62,7 +68,7 @@ class Header extends Component {
             ) : (
               <li className="nav-item">
                 <button
-                  className="nav-link text-light btn btn-link"
+                  className="nav-link text-light btn btn-link font-weight-bold"
                   key="signout"
                   onClick={this.signOut}
                 >

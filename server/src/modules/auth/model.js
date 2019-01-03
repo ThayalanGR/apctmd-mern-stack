@@ -1,7 +1,7 @@
 import mongoose, {
     Schema
 } from 'mongoose';
-import bcrypt from 'bcrypt';
+import crypto from 'crypto';
 import jwt from 'jsonwebtoken';
 
 const userSchema = Schema({
@@ -28,12 +28,46 @@ const userSchema = Schema({
 });
 
 userSchema.methods.setpassword = function (password) {
-    this.salt = bcrypt.genSaltSync(10); //10 rounds of hashes
-    this.hash = bcrypt.hashSync(password, this.salt);
+    var genRandomString = function (length) {
+        return crypto.randomBytes(Math.ceil(length / 2))
+            .toString('hex') /** convert to hexadecimal format */
+            .slice(0, length); /** return required number of characters */
+    };
+
+    this.salt = genRandomString(10); //10 rounds of hashes
+
+    var sha512 = function (password, salt) {
+        var hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
+        hash.update(password);
+        var value = hash.digest('hex');
+        return {
+            salt: salt,
+            passwordHash: value
+        };
+    };
+    var user = sha512(password, this.salt);
+    this.hash = user.passwordHash;
+
+    // this.hash = bcrypt.hashSync(password, this.salt);
 };
 
+
 userSchema.methods.validatePassword = function (password) {
-    return bcrypt.compareSync(password, this.hash);
+    var sha512 = function (password, salt) {
+        var hash = crypto.createHmac('sha512', salt); /** Hashing algorithm sha512 */
+        hash.update(password);
+        var value = hash.digest('hex');
+        return {
+            salt: salt,
+            passwordHash: value
+        };
+    };
+    const validate = sha512(password, this.salt);
+    if (validate.passwordHash === this.hash) {
+        return true;
+    } else {
+        return false;
+    }
 };
 
 userSchema.methods.generateToken = function () {

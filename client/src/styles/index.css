@@ -4,6 +4,11 @@
     font-family: 'Rajdhani', sans-serif;
 }
 
+.drone {
+    max-height: 500px;
+    max-width: 500px;
+}
+
 #body {
     background: #f2f2f2;
 }

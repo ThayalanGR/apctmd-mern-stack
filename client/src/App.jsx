@@ -4,7 +4,7 @@ import Header from "./components/header";
 class App extends Component {
   render() {
     return (
-      <div id="body" style={{ minHeight: "100vh" }}>
+      <div id="body" style={{ minHeight: "90vh" }}>
         <Header />
         <div className="container-fluid mt-5 pt-5">{this.props.children}</div>
       </div>

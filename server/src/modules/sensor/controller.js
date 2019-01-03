@@ -8,7 +8,17 @@ const sensorSchema = {
 };
 
 export const gasinputcontroller = (req, res) => {
-    Joi.validate(req.body.sensor, sensorSchema, (err, data) => {
+    const a = req.params.id1
+    const b = req.params.id2
+    const c = req.params.id3
+
+    let sensorValue = JSON.stringify({
+        gas1: a,
+        gas2: b,
+        gas3: c
+    });
+
+    Joi.validate(sensorValue, sensorSchema, (err, data) => {
         if (err) {
             return res.status(422).send({
                 success: false,

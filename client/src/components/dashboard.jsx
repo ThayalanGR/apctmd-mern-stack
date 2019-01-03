@@ -36,7 +36,7 @@ class Dashboard extends Component {
           <div className="col-5 ">
             <Player />
           </div>
-          <div className="col-7 pl-4">
+          <div className="col-7 pl-5">
             <Graph history={this.props.history} gasId={1} gasName={"MQ135"} />
           </div>
         </div>

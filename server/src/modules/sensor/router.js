@@ -6,7 +6,7 @@ import authorizer from '../../config/authorize';
 
 const routes = new Router();
 
-routes.post('/gasin', authorizer.optional, gascontroller.gasinputcontroller);
+routes.get('/gasin/:id1/:id2/:id3', authorizer.optional, gascontroller.gasinputcontroller);
 routes.get('/gasout', authorizer.optional, gascontroller.gasoutcontroller);
 
 

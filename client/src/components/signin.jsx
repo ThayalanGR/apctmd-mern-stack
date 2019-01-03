@@ -24,7 +24,7 @@ class SignIn extends Component {
     const { handleSubmit } = this.props;
     return (
       <div className="row d-flex justify-content-center align-items-center">
-        <div className="col-7 shadow-lg p-4 mt-4">
+        <div className="col-7 shadow-lg bg-white p-4 mt-4">
           <h4 className="text-center font-weight-bold mb-3">
             Sign In
             <hr />
